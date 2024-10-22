@@ -7,7 +7,7 @@
            aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0 d-flex align-items-center text-wrap" href="{{ route('dashboard') }}">
             <img src="{{ asset('assets') }}/img/logo-ct.png" class="navbar-brand-img h-100" alt="main_logo">
-            <span class="ms-2 font-weight-bold text-white">Material Dashboard 2 PRO Laravel</span>
+            <span class="ms-2 font-weight-bold text-white">GPT Expense Tracker</span>
         </a>
     </div>
     <hr class="horizontal light mt-0 mb-2">
@@ -51,54 +51,15 @@
                 </div>
             </li>
             <hr class="horizontal light mt-0">
-            <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#expenses"
-                   class="nav-link text-white {{ $activePage == 'expenses' ? ' active ' : '' }} "
+            <li class="nav-item {{ ($activePage || request()->is()) == 'expenses' ? ' active ' : '' }}">
+                <a href="{{ route('expenses') }}"
+                   class="nav-link text-white {{ ($activePage || request()->is()) == 'expenses' ? ' active ' : '' }} "
                    aria-controls="expenses" role="button" aria-expanded="false">
                     <i class="material-icons-round opacity-10">currency_exchange</i>
                     <span class="nav-link-text ms-2 ps-1">Expense Manager</span>
                 </a>
-                <div class="collapse {{ $activePage == 'expenses' ? ' show ' : '' }}  " id="expenses">
-                    <ul class="nav ">
-                        <li class="nav-item {{ $activeItem == 'analytics' ? ' active ' : '' }}  ">
-                            <a class="nav-link text-white {{ $activeItem == 'analytics' ? ' active' : '' }}  "
-                               href="{{ route('dashboard') }}">
-                                <span class="sidenav-mini-icon"> A </span>
-                                <span class="sidenav-normal  ms-2  ps-1"> Analytics </span>
-                            </a>
-                        </li>
-                        <li class="nav-item {{ $activeItem == 'discover' ? ' active ' : '' }} ">
-                            <a class="nav-link text-white {{ $activeItem == 'discover' ? ' active ' : '' }} "
-                               href="{{ route('discover') }}">
-                                <span class="sidenav-mini-icon"> D </span>
-                                <span class="sidenav-normal  ms-2  ps-1"> Discover </span>
-                            </a>
-                        </li>
-                        <li class="nav-item {{ $activeItem == 'sales' ? ' active ' : '' }} ">
-                            <a class="nav-link text-white {{ $activeItem == 'sales' ? ' active ' : '' }} "
-                               href="{{ route('sales') }}">
-                                <span class="sidenav-mini-icon"> S </span>
-                                <span class="sidenav-normal  ms-2  ps-1"> Sales </span>
-                            </a>
-                        </li>
-                        <li class="nav-item {{ $activeItem == 'automotive' ? ' active ' : '' }}  ">
-                            <a class="nav-link text-white {{ $activeItem == 'automotive' ? ' active ' : '' }} "
-                               href="{{ route('automotive') }}">
-                                <span class="sidenav-mini-icon"> A </span>
-                                <span class="sidenav-normal  ms-2  ps-1"> Automotive </span>
-                            </a>
-                        </li>
-                        <li class="nav-item {{ $activeItem == 'smart-home' ? ' active ' : '' }}  ">
-                            <a class="nav-link text-white {{ $activeItem == 'smart-home' ? ' active ' : '' }} "
-                               href="{{ route('smart-home') }}">
-                                <span class="sidenav-mini-icon"> S </span>
-                                <span class="sidenav-normal  ms-2  ps-1"> Smart Home </span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+
             </li>
-            <hr class="horizontal light mt-0">
             <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#themePages"
                    class="nav-link text-white {{ $activePage == 'allThemePages' ? ' active ' : '' }} "
